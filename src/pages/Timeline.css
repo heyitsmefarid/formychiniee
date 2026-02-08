@@ -1,0 +1,233 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+.timeline-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+}
+
+.timeline-content {
+  text-align: center;
+  z-index: 10;
+  padding: 2rem;
+  width: 100%;
+  max-width: 800px;
+}
+
+.memory-carousel {
+  position: relative;
+  height: 400px;
+  margin: 3rem 0;
+}
+
+.memory-card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.9);
+  opacity: 0;
+  transition: all 0.5s ease-out;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 240, 245, 0.98) 100%);
+  border: 4px solid #fff;
+  box-shadow: 
+    8px 8px 0px #ff1493,
+    12px 12px 0px rgba(0, 0, 0, 0.2),
+    0 10px 40px rgba(255, 20, 147, 0.2);
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  backdrop-filter: blur(10px);
+  position: absolute;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.memory-card::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #ff69b4, #ff1493, #764ba2, #667eea);
+  background-size: 300% 300%;
+  animation: borderGlow 4s ease infinite;
+  z-index: -1;
+  border-radius: 8px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+@keyframes borderGlow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.memory-card.active {
+  transform: translate(-50%, -50%) scale(1);
+  opacity: 1;
+  z-index: 2;
+  pointer-events: auto;
+}
+
+.memory-card.active::before {
+  opacity: 0.3;
+}
+
+.memory-emoji {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  animation: emojiFloat 3s ease-in-out infinite;
+  display: inline-block;
+  filter: drop-shadow(0 4px 8px rgba(255, 20, 147, 0.3));
+}
+
+@keyframes emojiFloat {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-10px) rotate(-5deg); }
+  50% { transform: translateY(-15px) rotate(0deg); }
+  75% { transform: translateY(-10px) rotate(5deg); }
+}
+
+.memory-title {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1.2rem;
+  color: #ff1493;
+  margin-bottom: 1rem;
+  line-height: 1.8;
+}
+
+.memory-date {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.7rem;
+  color: #764ba2;
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+.memory-text {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 0.8rem;
+  color: #333;
+  line-height: 1.8;
+}
+
+.timeline-dots {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.dot {
+  width: 16px;
+  height: 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.dot.active {
+  background: #ff1493;
+  transform: scale(1.3);
+  box-shadow: 0 0 10px #ff1493;
+}
+
+.dot:hover {
+  background: #ff69b4;
+  transform: scale(1.2);
+}
+
+.next-button {
+  margin-top: 2rem;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .memory-carousel {
+    height: 450px;
+    margin: 2rem 0;
+  }
+
+  .memory-card {
+    padding: 1.5rem;
+    box-shadow: 
+      6px 6px 0px #ff1493,
+      10px 10px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .memory-emoji {
+    font-size: 3rem;
+  }
+
+  .memory-title {
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .memory-date {
+    font-size: 0.6rem;
+  }
+
+  .memory-text {
+    font-size: 0.65rem;
+    line-height: 1.6;
+  }
+
+  .timeline-dots {
+    gap: 0.7rem;
+  }
+
+  .dot {
+    width: 12px;
+    height: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-content {
+    padding: 1rem;
+  }
+
+  .memory-carousel {
+    height: 500px;
+  }
+
+  .memory-card {
+    padding: 1rem;
+    border: 3px solid #fff;
+    box-shadow: 
+      4px 4px 0px #ff1493,
+      8px 8px 0px rgba(0, 0, 0, 0.2);
+  }
+
+  .memory-emoji {
+    font-size: 2.5rem;
+  }
+
+  .memory-title {
+    font-size: 0.7rem;
+    line-height: 1.5;
+  }
+
+  .memory-date {
+    font-size: 0.5rem;
+    line-height: 1.4;
+  }
+
+  .memory-text {
+    font-size: 0.55rem;
+    line-height: 1.5;
+  }
+
+  .pixel-title {
+    font-size: 1.3rem;
+  }
+}
