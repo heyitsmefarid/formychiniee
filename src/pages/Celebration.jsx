@@ -11,8 +11,8 @@ function Celebration() {
   useEffect(() => {
     // Detect if mobile
     const isMobile = window.innerWidth <= 768;
-    const confettiInterval = isMobile ? 500 : 250;
-    const flowerInterval = isMobile ? 600 : 300;
+    const confettiIntervalTime = isMobile ? 500 : 250;
+    const flowerIntervalTime = isMobile ? 600 : 300;
     const particleCount = isMobile ? 20 : 50;
     
     // Continuous fireworks
@@ -45,7 +45,7 @@ function Celebration() {
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
         colors: ['#ff69b4', '#ff1493', '#ffc0cb'],
       });
-    }, confettiInterval);
+    }, confettiIntervalTime);
 
     // Heart confetti bursts
     const heartInterval = setInterval(() => {
@@ -73,7 +73,7 @@ function Celebration() {
       setTimeout(() => {
         setFlowers(prev => prev.filter(f => f.id !== newFlower.id));
       }, (newFlower.animationDuration * 1000) + 1000);
-    }, flowerInterval);
+    }, flowerIntervalTime);
 
     setTimeout(() => setShowMessage(true), 1000);
 
