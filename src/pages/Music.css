@@ -407,14 +407,6 @@
   font-size: 0.8rem;
   margin-top: 2rem;
   text-shadow: 0 0 10px rgba(255, 20, 147, 0.5);
-  animation: heartbeat 2s ease-in-out infinite;
-}
-
-@keyframes heartbeat {
-  0%, 100% { transform: scale(1); }
-  25% { transform: scale(1.05); }
-  50% { transform: scale(1); }
-  75% { transform: scale(1.05); }
 }
 
 .continue-button {
