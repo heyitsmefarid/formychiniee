@@ -10,8 +10,10 @@ import Celebration from './pages/Celebration';
 import './App.css';
 
 function App() {
+  const basename = import.meta.env.VITE_BASE_PATH || '/formychiniee';
+  
   return (
-    <Router basename="/formychiniee">
+    <Router basename={basename}>
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/password" element={<Password />} />
