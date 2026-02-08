@@ -11,7 +11,7 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
+    <Router basename="/formychiniee">
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route path="/password" element={<Password />} />
