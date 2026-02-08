@@ -9,6 +9,12 @@ function Celebration() {
   const flowerEmojis = ['🌸', '🌺', '🌹', '🌷', '🌼', '💐', '🌻', '🏵️', '💮'];
 
   useEffect(() => {
+    // Detect if mobile
+    const isMobile = window.innerWidth <= 768;
+    const confettiInterval = isMobile ? 500 : 250;
+    const flowerInterval = isMobile ? 600 : 300;
+    const particleCount = isMobile ? 20 : 50;
+    
     // Continuous fireworks
     const duration = 15000;
     const animationEnd = Date.now() + duration;
@@ -25,29 +31,29 @@ function Celebration() {
         return clearInterval(interval);
       }
 
-      const particleCount = 50 * (timeLeft / duration);
+      const currentParticleCount = particleCount * (timeLeft / duration);
 
       confetti({
         ...defaults,
-        particleCount,
+        particleCount: currentParticleCount,
         origin: { x: randomInRange(0.1, 0.3), y: Math.random() - 0.2 },
-        colors: ['#ff69b4', '#ff1493', '#ff69b4', '#ffc0cb'],
+        colors: ['#ff69b4', '#ff1493', '#ffc0cb'],
       });
       confetti({
         ...defaults,
-        particleCount,
+        particleCount: currentParticleCount,
         origin: { x: randomInRange(0.7, 0.9), y: Math.random() - 0.2 },
-        colors: ['#ff69b4', '#ff1493', '#ff69b4', '#ffc0cb'],
+        colors: ['#ff69b4', '#ff1493', '#ffc0cb'],
       });
-    }, 250);
+    }, confettiInterval);
 
     // Heart confetti bursts
     const heartInterval = setInterval(() => {
       confetti({
-        particleCount: 100,
+        particleCount: isMobile ? 50 : 100,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ['#ff69b4', '#ff1493', '#ff69b4', '#ffc0cb', '#fff'],
+        colors: ['#ff69b4', '#ff1493', '#ffc0cb', '#fff'],
         shapes: ['circle'],
         scalar: 1.2,
       });
@@ -67,7 +73,7 @@ function Celebration() {
       setTimeout(() => {
         setFlowers(prev => prev.filter(f => f.id !== newFlower.id));
       }, (newFlower.animationDuration * 1000) + 1000);
-    }, 300);
+    }, flowerInterval);
 
     setTimeout(() => setShowMessage(true), 1000);
 

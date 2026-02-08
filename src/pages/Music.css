@@ -7,16 +7,8 @@
   justify-content: center;
   position: relative;
   overflow-x: hidden;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 25%, #f093fb 50%, #4facfe 75%, #00f2fe 100%);
-  background-size: 400% 400%;
-  animation: gradientShift 15s ease infinite;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
   padding: 2rem 0;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
 
 .music-notes {
@@ -77,69 +69,18 @@
 .small-title {
   font-size: 2rem;
   margin-bottom: 2rem;
-  text-shadow: 
-    0 0 10px #fff,
-    0 0 20px #fff,
-    0 0 30px #ff69b4,
-    0 0 40px #ff1493;
-  animation: titlePulse 3s ease-in-out infinite;
-}
-
-@keyframes titlePulse {
-  0%, 100% {
-    text-shadow: 
-      0 0 10px #fff,
-      0 0 20px #fff,
-      0 0 30px #ff69b4,
-      0 0 40px #ff1493;
-  }
-  50% {
-    text-shadow: 
-      0 0 20px #fff,
-      0 0 30px #fff,
-      0 0 40px #ff69b4,
-      0 0 50px #ff1493,
-      0 0 60px #ff1493;
-  }
+  text-shadow: 0 0 20px #ff69b4;
 }
 
 .music-player {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
+  background: rgba(255, 255, 255, 0.15);
   border: 6px solid #fff;
-  box-shadow: 
-    8px 8px 0px #ff1493,
-    12px 12px 0px rgba(0, 0, 0, 0.3),
-    0 15px 50px rgba(255, 20, 147, 0.4),
-    inset 0 0 60px rgba(255, 255, 255, 0.1);
+  box-shadow: 8px 8px 0px #ff1493;
   padding: 2.5rem;
   margin: 2rem auto;
   max-width: 600px;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(10px);
   border-radius: 20px;
-  animation: playerFloat 6s ease-in-out infinite;
-  position: relative;
-  overflow: hidden;
-}
-
-.music-player::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
-  animation: playerShine 8s linear infinite;
-}
-
-@keyframes playerShine {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-
-@keyframes playerFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
 }
 
 .album-art {
@@ -148,26 +89,13 @@
   height: 350px;
   margin: 0 auto 2rem;
   border: 6px solid #fff;
-  box-shadow: 
-    0 8px 30px rgba(255, 20, 147, 0.5),
-    0 0 60px rgba(255, 105, 180, 0.4),
-    8px 8px 0px #ff1493;
+  box-shadow: 8px 8px 0px #ff1493;
   border-radius: 20px;
   overflow: hidden;
-  animation: albumPulse 4s ease-in-out infinite;
   display: flex;
   align-items: center;
   justify-content: center;
   background: linear-gradient(135deg, #ff69b4, #ff1493);
-}
-
-@keyframes albumPulse {
-  0%, 100% {
-    transform: scale(1);
-  }
-  50% {
-    transform: scale(1.02);
-  }
 }
 
 .album-image {
@@ -176,12 +104,6 @@
   object-fit: fill;
   display: block;
   border-radius: 14px;
-  animation: imageGlow 3s ease-in-out infinite;
-}
-
-@keyframes imageGlow {
-  0%, 100% { filter: brightness(1); }
-  50% { filter: brightness(1.1); }
 }
 
 .vinyl-effect {
@@ -211,26 +133,7 @@
   color: #fff;
   margin-bottom: 0.8rem;
   line-height: 1.8;
-  text-shadow: 
-    0 0 10px rgba(255, 105, 180, 0.8),
-    0 0 20px rgba(255, 20, 147, 0.6),
-    2px 2px 4px rgba(0, 0, 0, 0.5);
-  animation: songTitleGlow 2s ease-in-out infinite;
-}
-
-@keyframes songTitleGlow {
-  0%, 100% { 
-    text-shadow: 
-      0 0 10px rgba(255, 105, 180, 0.8),
-      0 0 20px rgba(255, 20, 147, 0.6),
-      2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
-  50% { 
-    text-shadow: 
-      0 0 20px rgba(255, 105, 180, 1),
-      0 0 30px rgba(255, 20, 147, 0.8),
-      2px 2px 4px rgba(0, 0, 0, 0.5);
-  }
+  text-shadow: 0 0 10px rgba(255, 105, 180, 0.8);
 }
 
 .artist-name {
@@ -249,48 +152,25 @@
   width: 80px;
   height: 80px;
   font-size: 2rem;
-  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+  background: #ff69b4;
   color: #fff;
   border: 4px solid #fff;
-  box-shadow: 
-    6px 6px 0px #fff,
-    10px 10px 0px rgba(0, 0, 0, 0.5),
-    0 0 30px rgba(255, 20, 147, 0.6);
+  box-shadow: 6px 6px 0px #fff;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: transform 0.3s, box-shadow 0.3s;
   font-family: 'Press Start 2P', cursive;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   border-radius: 50%;
-  animation: playButtonPulse 2s ease-in-out infinite;
-}
-
-@keyframes playButtonPulse {
-  0%, 100% { 
-    transform: scale(1);
-    box-shadow: 
-      6px 6px 0px #fff,
-      10px 10px 0px rgba(0, 0, 0, 0.5),
-      0 0 30px rgba(255, 20, 147, 0.6);
-  }
-  50% { 
-    transform: scale(1.05);
-    box-shadow: 
-      6px 6px 0px #fff,
-      10px 10px 0px rgba(0, 0, 0, 0.5),
-      0 0 40px rgba(255, 20, 147, 0.8);
-  }
+  will-change: transform;
 }
 
 .pixel-play-button:hover {
-  transform: scale(1.15) rotate(5deg);
-  box-shadow: 
-    8px 8px 0px #fff,
-    14px 14px 0px rgba(0, 0, 0, 0.5),
-    0 0 50px rgba(255, 20, 147, 0.9);
-  background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+  transform: scale(1.1);
+  box-shadow: 8px 8px 0px #fff;
+  background: #ff1493;
 }
 
 .pixel-play-button:active {
@@ -355,41 +235,14 @@
 }
 
 .music-message {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 240, 250, 0.98) 100%);
+  background: rgba(255, 255, 255, 0.98);
   border: 6px solid #fff;
-  box-shadow: 
-    8px 8px 0px #ff1493,
-    12px 12px 0px rgba(0, 0, 0, 0.3),
-    0 10px 50px rgba(255, 20, 147, 0.4);
+  box-shadow: 8px 8px 0px #ff1493;
   padding: 2.5rem;
   margin: 3rem auto;
   max-width: 700px;
   text-align: left;
   border-radius: 20px;
-  animation: messageFloat 8s ease-in-out infinite;
-  position: relative;
-  overflow: hidden;
-}
-
-.music-message::before {
-  content: '';
-  position: absolute;
-  top: -100%;
-  left: -100%;
-  width: 300%;
-  height: 300%;
-  background: radial-gradient(circle, rgba(255, 105, 180, 0.1) 0%, transparent 70%);
-  animation: messagePulse 10s ease-in-out infinite;
-}
-
-@keyframes messageFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-@keyframes messagePulse {
-  0%, 100% { transform: translate(0, 0) rotate(0deg); }
-  50% { transform: translate(50px, 50px) rotate(180deg); }
 }
 
 .message-text {
@@ -411,31 +264,24 @@
 
 .continue-button {
   margin-top: 2rem;
-  background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
-  animation: buttonGlow 2s ease-in-out infinite;
-}
-
-@keyframes buttonGlow {
-  0%, 100% { 
-    box-shadow: 
-      6px 6px 0px #fff,
-      10px 10px 0px rgba(0, 0, 0, 0.3),
-      0 0 20px rgba(255, 20, 147, 0.4);
-  }
-  50% { 
-    box-shadow: 
-      6px 6px 0px #fff,
-      10px 10px 0px rgba(0, 0, 0, 0.3),
-      0 0 40px rgba(255, 20, 147, 0.7);
-  }
+  background: #ff69b4;
 }
 
 .continue-button:hover {
-  background: linear-gradient(135deg, #ff1493 0%, #ff69b4 100%);
+  background: #ff1493;
 }
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  /* Disable expensive effects on mobile */
+  .music-notes {
+    display: none;
+  }
+  
+  .music-player {
+    backdrop-filter: blur(5px);
+  }
+  
   .music-content {
     padding: 1.5rem 1rem;
   }
@@ -446,7 +292,7 @@
 
   .music-player {
     padding: 2rem;
-    border: 4px solid #1db954;
+    border: 4px solid #fff;
   }
 
   .album-art {
@@ -489,6 +335,11 @@
 }
 
 @media (max-width: 480px) {
+  .music-player {
+    backdrop-filter: none;
+    background: rgba(255, 255, 255, 0.2);
+  }
+  
   .small-title {
     font-size: 1.2rem;
   }

@@ -288,11 +288,23 @@
 
 /* Mobile Responsive */
 @media (max-width: 768px) {
+  /* Disable heavy animations on mobile */
+  .pixel-bg {
+    animation: none;
+  }
+  
+  .pixel-hearts::before,
+  .pixel-hearts::after {
+    animation-duration: 12s;
+  }
+  
+  .floating-square {
+    animation-duration: 20s;
+  }
+  
   .pixel-title {
     font-size: 1.3rem;
-    text-shadow: 
-      2px 2px 0px #ff1493,
-      4px 4px 0px rgba(0, 0, 0, 0.2);
+    text-shadow: 2px 2px 0px #ff1493, 4px 4px 0px rgba(0, 0, 0, 0.2);
   }
 
   .pixel-subtitle {
@@ -307,9 +319,7 @@
     font-size: 0.8rem;
     padding: 1rem 2rem;
     border: 3px solid #fff;
-    box-shadow: 
-      3px 3px 0px #fff,
-      6px 6px 0px rgba(0, 0, 0, 0.3);
+    box-shadow: 3px 3px 0px #fff, 6px 6px 0px rgba(0, 0, 0, 0.3);
   }
 
   .landing-content {
