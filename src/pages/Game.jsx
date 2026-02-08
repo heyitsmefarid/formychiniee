@@ -68,10 +68,6 @@ function Game() {
       <div className="game-content">
         <h1 className="pixel-title">Memory Game</h1>
         <p className="game-subtitle">Match the hearts for a special surprise!</p>
-        
-        <div className="game-stats">
-          <span className="pixel-text">Moves: {moves}</span>
-        </div>
 
         <div className="card-grid">
           {cards.map((card, index) => (
